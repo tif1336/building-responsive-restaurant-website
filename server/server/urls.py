@@ -25,6 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/menus/', include('menus.urls')),
     path('api/', include('profiles.urls')),
+    path('api/menus/categories/', include('menus.urls')),
+    path('api/profile', include('profiles.urls')),
+    path('api/opening-hour/', include('profiles.urls')),
+    path('api/faq/', include('profiles.urls')),
     path('swagger-ui/', TemplateView.as_view(
         template_name='swagger-ui.html',
         extra_context={'schema_url':'openapi-schema'}
@@ -38,6 +42,7 @@ urlpatterns = [
         description="API untuk Website Restaurant Keluarga Solo",
         version="1.0.0"
     ), name='openapi-schema'),
+    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
