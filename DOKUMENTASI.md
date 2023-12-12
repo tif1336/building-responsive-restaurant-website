@@ -4,9 +4,6 @@
 ### 1. L200214214 Muhammad Alyf Aqilla
 ### 2. L200214232 Putri Yogi Noviana
 ### 3. L200214071 Ilham Aufal Hadad
-### 4. L200XXXXXX Nama Lengkap 4
-### 5. L200XXXXXX Nama Lengkap 5
-### 6. L200XXXXXX Nama Lengkap 6
 
 <br>
 
