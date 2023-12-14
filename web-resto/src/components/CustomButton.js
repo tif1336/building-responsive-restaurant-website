@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 
 //styled typography because it's easier to style than button
 const CustomButton = styled(Typography)(({ theme, isactive }) => ({
-        backgroundColor: isactive ? "#FAB210" : "#1A1A1A",
+        backgroundColor: isactive ? "#6366F1" : "#1A1A1A",
         color: "#FFFFFF",
         fontWeight: "700",
         fontSize: "14px",
@@ -18,7 +18,7 @@ const CustomButton = styled(Typography)(({ theme, isactive }) => ({
         display: "block",
         border: "2px solid transparent",
         "&:hover": isactive ? {
-          backgroundColor: "#FAB210",
+          backgroundColor: "#6366F1",
           color: "#1A1A1A",
           borderColor: "#1A1A1A",
         } : {

@@ -24,12 +24,13 @@ const AccordionSummary = styled((props) => (
     style={{ borderRadius: '8px' }}
     expandIcon={<Arrow />}
     {...props}
+    Id={'FAQ'}
   />
 ))(({ theme }) => ({
   backgroundColor:
-    theme.palette.mode === 'dark'
+    theme.palette.mode === 'l'
       ? '#A1A1A1'
-      : '#FDA021',
+      : '#6366F1',
   flexDirection: 'row-reverse',
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(90deg)',

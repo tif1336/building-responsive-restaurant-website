@@ -46,7 +46,7 @@ import {
             <Typography
               variant="body2"
               sx={{
-                color: "#FDA021",
+                color: "#6366F1",
                 fontSize: "16px",
                 fontWeight: "bold",
                 mb: 2,
@@ -62,7 +62,7 @@ import {
             <Typography
               variant="body2"
               sx={{
-                color: "#FDA021",
+                color: "#6366F1",
                 fontSize: "16px",
                 fontWeight: "bold",
                 mb: 2,
@@ -78,7 +78,7 @@ import {
             <Typography
               variant="body2"
               sx={{
-                color: "#FDA021",
+                color: "#6366F1",
                 fontSize: "16px",
                 fontWeight: "bold",
                 mb: 2,

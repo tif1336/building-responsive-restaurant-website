@@ -21,10 +21,10 @@ export default function MenuContainer() {
     }, [])  
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2} paddingY={3} style={{alignItems: "center", justifyContent: "center"}}>
-        <Grid item md={2} xs={6} sm={6}>
-          <CustomButton isactive={activeButton === "all"} onClick={() => handleClick("all")}>All</CustomButton>
+    <Box sx={{ flexGrow: 1 }} >
+      <Grid container spacing={2} paddingY={3} style={{alignItems: "center", justifyContent: "center" }}>
+        <Grid item md={2} xs={6} sm={6} Id={'Menu'}>
+          <CustomButton isactive={activeButton === "all"} onClick={() => handleClick("all")}>Semua</CustomButton>
         </Grid>
         <Grid item md={2} xs={6} sm={6}>
           <CustomButton isactive={activeButton === "pembuka"} onClick={() => handleClick("pembuka")}>Pembuka</CustomButton>
