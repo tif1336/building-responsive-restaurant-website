@@ -3,6 +3,8 @@
     background: rgb(133, 66, 4);
     position: fixed;
     width: 100%;
+    top: 0;
+    z-index: 1000; /* Nilai z-index untuk memastikan navbar di atas elemen lain */
 }
 
 .myBG{

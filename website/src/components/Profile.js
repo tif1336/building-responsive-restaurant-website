@@ -6,10 +6,11 @@ import logoTIKTOK from '../asset/logoTIKTOK.png'
 const Profile = () => {
   return (
     <div className="outro">
+    <Container className="d-flex flex-column align-items-center justify-content-center ">
     <Row>
       {/* Kolom Pertama */}
       <Col>
-          <Container className="d-flex flex-column align-items-start justify-content-center " style={{ height: '75%', width: '25vh' }}>
+          <Container className="d-flex flex-column align-items-start justify-content-top " style={{ height: '75%', width: '25vh' }}>
             <h4 className="text-white">Tentang Kami</h4>
             <Button className="bg-transparent text-white mb-2">Phone</Button>
             <Button className="bg-transparent text-white mb-2">Email</Button>
@@ -18,7 +19,7 @@ const Profile = () => {
       </Col>
       {/* Kolom Kedua */}
       <Col>
-      <Container className="d-flex flex-column align-items-start justify-content-center " style={{ height: '100%', width: '40vh'}}>
+      <Container className="d-flex flex-column align-items-start justify-content-top " style={{ height: '100%', width: '40vh'}}>
         <h4 className="text-white">Get in Touch</h4>
         <p className="text-white">Discover the timeless charm of, where the traditional cuisine never goes out of style.</p>
         <img className='myLogo' src={logoFB} alt="Facebook Account" />
@@ -28,14 +29,14 @@ const Profile = () => {
       {/* Kolom Kedua */}
       </Col>
       <Col>
-          <Container className="d-flex flex-column align-items-start justify-content-center " style={{ height: '75%', width: '25vh' }}>
+          <Container className="d-flex flex-column align-items-start justify-content-top " style={{ height: '75%', width: '25vh' }}>
             <h4 className="text-white">Opening Hours</h4>
             <Button className="bg-transparent text-white mb-2">Monday - Thursday</Button>
             <Button className="bg-transparent text-white mb-2">Friday</Button>
             <Button className="bg-transparent text-white">Saturday - Sunday</Button>
           </Container>
       </Col>
-    </Row></div>
+    </Row></Container>    </div>
     
   );
 };
