@@ -42,11 +42,11 @@ import {
         {/* Render a CustomBox component with an image and Typography component */}
         <CustomContainer>
           <CustomBox>
-            <img src='../images/place3.jpg' alt="Dishes" style={{ maxWidth: "20rem" }} />
+            <img src='../images/place3.jpg' alt="Dishes" style={{ maxWidth: "20rem" ,padding: '0.5rem'}} />
             <Typography
               variant="body2"
               sx={{
-                color: "#6366F1",
+                color: "#FFFFFF",
                 fontSize: "16px",
                 fontWeight: "bold",
                 mb: 2,
@@ -58,11 +58,11 @@ import {
 
           {/* Render a CustomBox component with an image and Typography component */}
           <CustomBox>
-            <img src='../images/place2.jpg' alt="Place" style={{ maxWidth: "20rem" }} />
+            <img src='../images/place2.jpg' alt="Place" style={{ maxWidth: "20rem", padding: '0.5rem' }} />
             <Typography
               variant="body2"
               sx={{
-                color: "#6366F1",
+                color: "#FFFFFF",
                 fontSize: "16px",
                 fontWeight: "bold",
                 mb: 2,
@@ -74,11 +74,11 @@ import {
 
           {/* Render a CustomBox component with an image and Typography component */}
           <CustomBox>
-            <img src='../images/place1.jpg' alt="Place" style={{ maxWidth: "20rem" }} />
+            <img src='../images/place1.jpg' alt="Place" style={{ maxWidth: "20rem", padding: '0.5rem' }} />
             <Typography
               variant="body2"
               sx={{
-                color: "#6366F1",
+                color: "#FFFFFF",
                 fontSize: "16px",
                 fontWeight: "bold",
                 mb: 2,
