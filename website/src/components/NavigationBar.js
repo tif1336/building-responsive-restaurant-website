@@ -1,16 +1,25 @@
 import {Nav, Container, Navbar, NavLink, NavbarBrand} from 'react-bootstrap'
+import logo from '../asset/logo.jpeg'
 
 const NavigationBar = () => {
     return (
       <div className="myNB">
         <Navbar variant='dark'>
             <Container>
-                <NavbarBrand>Restoran Keluarga Solo</NavbarBrand>
+            <NavbarBrand>
+        <img
+          src={logo} 
+          height="30"
+          className="d-inline-block align-top"
+          alt="Restoran Keluarga Solo Logo"
+        />{' '}
+        Restoran Keluarga Solo
+      </NavbarBrand>
                 <Nav>
-                    <NavLink>Menu</NavLink>
-                    <NavLink>Profile</NavLink>
-                    <NavLink>FAQ</NavLink>
-                    <NavLink>About Us</NavLink>
+                    <NavLink className='text-white'>Menu</NavLink>
+                    <NavLink className='text-white'>Profile</NavLink>
+                    <NavLink className='text-white'>FAQ</NavLink>
+                    <NavLink className='text-white'>About Us</NavLink>
                 </Nav>
             </Container>
             </Navbar>
