@@ -1,48 +1,77 @@
-import { Disclosure } from '@headlessui/react'
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+'use client'
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Arrow from '../components/assets/Arrow.jsx';
+import MuiAccordion from '@mui/material/Accordion';
+import MuiAccordionSummary from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
 
-const faqs = [
-  {
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+const Accordion = styled((props) => (
+  <MuiAccordion style={{ borderRadius: '8px' }} disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
   },
-  // More questions...
-]
+  '&:before': {
+    display: 'none',
+  },
+}));
 
-export default function Example() {
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    style={{ borderRadius: '8px' }}
+    expandIcon={<Arrow />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? '#A1A1A1'
+      : '#FDA021',
+  flexDirection: 'row-reverse',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderTop: '0px solid rgba(0, 0, 0, .125)',
+  borderRadius: '8px',
+}));
+
+export default function TemplateFAQ({id, question, answer}) {
+  const [expanded, setExpanded] = React.useState(1);
+
+  const handleChange = (id) => {
+    return (event, newExpanded) => {
+      setExpanded(newExpanded ? id : true);
+    };
+  };
+  
+
+  //limit the description to 15 words max
+  const words = answer ? answer.split(' ') : [];
+const limitedAnswer = words.slice(0, 40).join(' ');
+
+
   return (
-    <div className="bg-gray-900">
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
-        <div className="mx-auto max-w-4xl divide-y divide-white/10">
-          <h2 className="text-2xl font-bold leading-10 tracking-tight text-white">Frequently asked questions</h2>
-          <dl className="mt-10 space-y-6 divide-y divide-white/10">
-            {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.question} className="pt-6">
-                {({ open }) => (
-                  <>
-                    <dt>
-                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-white">
-                        <span className="text-base font-semibold leading-7">{faq.question}</span>
-                        <span className="ml-6 flex h-7 items-center">
-                          {open ? (
-                            <MinusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                          ) : (
-                            <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
-                          )}
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
-                      <p className="text-base leading-7 text-gray-300">{faq.answer}</p>
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
-        </div>
-      </div>
+    <div>
+      <Accordion expanded={expanded === id} onChange={handleChange(id)}>
+        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+          <Typography>{question}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {limitedAnswer}
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </div>
-  )
+  );
 }

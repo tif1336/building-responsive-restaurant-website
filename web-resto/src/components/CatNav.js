@@ -1,75 +1,50 @@
 'use client'
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Unstable_Grid2';
+import MenuCard from './MenuCard';
 
+import CustomButton from './CustomButton';
 
-const MenuList = () => {
-  const [menus, setMenus] = useState([]);
+export default function MenuContainer() {
+    const [menus, setMenu] = React.useState ([])
+    const [activeButton, setActiveButton] = React.useState("all")
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/menus/');
-        setMenus(response.data);
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-    return menus;
-};
-
-  
-
-  
-  export default function food() {
-    const menus = MenuList();
-    const pembuka = menus.find((menu) => menu.id === 1);
-    const utama = menus.find((menu) => menu.id === 2);
-    const penutup = menus.find((menu) => menu.id === 3);
-    return (
-        <div className="bg-white">
-          <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-
-          
-
-    
-            <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-              {menus.map((menu) => (
-                <a key={menu.id} className="group">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2">
-                    <img
-                      src={menu.image}
-                      
-                      className="h-full w-full object-cover object-center group-hover:opacity-75"
-                    />
-                  </div>
-                  <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                    <h3>{menu.name}</h3>
-                    <p>Rp.{menu.price}000</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      );
+    const handleClick = (button) => {
+      setActiveButton(button)
     }
-  
+
+    React.useEffect(() => {
+        fetch('http://127.0.0.1:8000/api/menus/')
+        .then(response => response.json())
+        .then(data => setMenu(data))
+    }, [])  
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2} paddingY={3} style={{alignItems: "center", justifyContent: "center"}}>
+        <Grid item md={2} xs={6} sm={6}>
+          <CustomButton isactive={activeButton === "all"} onClick={() => handleClick("all")}>All</CustomButton>
+        </Grid>
+        <Grid item md={2} xs={6} sm={6}>
+          <CustomButton isactive={activeButton === "pembuka"} onClick={() => handleClick("pembuka")}>Pembuka</CustomButton>
+        </Grid>
+        <Grid item md={2} xs={6} sm={6}>
+          <CustomButton isactive={activeButton === "utama"} onClick={() => handleClick("utama")}>Utama</CustomButton>
+        </Grid>
+        <Grid item md={2} xs={6} sm={6}>
+          <CustomButton isactive={activeButton === "penutup"} onClick={() => handleClick("penutup")}>Penutup</CustomButton>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} paddingY={3} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+      {menus
+      .filter((menu) => menu.category.toLowerCase() === activeButton || activeButton === "all")
+      .map((menu) => (
+            <Grid item xs={9} sm={6} md={4} lg={3}>
+                <MenuCard {...menu}/>
+            </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+}
