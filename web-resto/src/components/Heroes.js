@@ -22,7 +22,7 @@ export default function Example() {
               <span className="sr-only">Restoran Keluarga Solo</span>
               <img
                   className="h-8 w-auto"
-                  src='../images/logo.jpeg' alt="logo"/>
+                  src='../images/logo.jpg' alt="logo"/>
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -51,7 +51,7 @@ export default function Example() {
                 <span className="sr-only">Restoran Keluarga Solo</span>
                 <img
                   className="h-8 w-auto"
-                  src='../images/logo.jpeg' alt="logo"/>
+                  src='../images/logo.jpg' alt="logo"/>
               </a>
               <button
                 type="button"

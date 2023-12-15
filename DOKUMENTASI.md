@@ -8,4 +8,5 @@
 <br>
 
 Silahkan anda tuliskan dokumentasi tugas anda di sini
-Alyf: Menambah Endpoint untuk urls
+<br>
+Alyf: Menambah Endpoint untuk urls, Membuat menu, menambah beberapa template
